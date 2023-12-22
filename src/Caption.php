@@ -12,4 +12,9 @@ class Caption
     {
         $this->lines->push($line);
     }
+
+    public function lines(): Collection
+    {
+        return $this->lines;
+    }
 }
