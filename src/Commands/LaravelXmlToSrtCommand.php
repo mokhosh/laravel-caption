@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Mokhosh\LaravelXmlToSrt\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelXmlToSrtCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-xml2srt';
 
     public $description = 'My command';
 
