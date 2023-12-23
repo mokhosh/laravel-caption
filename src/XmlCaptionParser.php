@@ -2,16 +2,26 @@
 
 namespace Mokhosh\LaravelXmlToSrt;
 
+use SimpleXMLElement;
+
 class XmlCaptionParser
 {
-    public function __construct(
-        protected string $path,
-    ) {}
+    protected SimpleXMLElement $xml;
+
+    public function __construct(string $xml)
+    {
+        $this->xml = simplexml_load_string($xml);
+    }
+
+    public static function import(string $path): static
+    {
+        $xml = file_get_contents($path);
+        
+        return new static($xml);
+    }
 
     public function parse(): Caption
     {
-        $file = file_get_contents($this->path);
-        $xml = simplexml_load_string($file);
         $caption = new Caption;
 
         foreach ($xml->transcript as $text) {
