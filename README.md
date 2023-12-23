@@ -17,10 +17,29 @@ composer require mokhosh/laravel-xml2srt
 
 ## Usage
 
+You can simply convert a youtube xml timecode file to a srt subtitle file like so:
+
 ```php
+use Mokhosh\LaravelXmlToSrt\Facades\LaravelXmlToSrt;
+
+LaravelXmlToSrt::convert('input.xml', 'output.srt');
+```
+
+If you need more control you can do this:
+
+```php
+use Mokhosh\LaravelXmlToSrt\XmlCaptionParser;
+use Mokhosh\LaravelXmlToSrt\SrtGenerator;
+
 $caption = XmlCaptionParser::import('input.xml')->parse();
 SrtGenerator::load($caption)->export('output.srt');
 ```
+
+`Caption` has a `Collection` of `Line`s, to which you can `add()` a new `Line`.
+You can also get all `lines()` of a `Caption`.
+Each line is a readonly value object consisting of a float `start`, a float `duration`, and a `text`.
+
+You can also use `TimecodeConverter`'s `floatToTimecode()` to convert floating seconds/miliseconds values to formatted timecode.
 
 ## Testing
 
