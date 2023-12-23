@@ -11,8 +11,7 @@ it('can read xml caption files', function () {
 
 it('can generate srt files', function () {
     $caption = XmlCaptionParser::import('tests/test.xml')->parse();
-    $generator = new SrtGenerator($caption);
-    $generator->export('tests/test.srt');
+    SrtGenerator::load($caption)->export('tests/test.srt');
 
     expect('tests/test.srt')->toBeReadableFile();
 });

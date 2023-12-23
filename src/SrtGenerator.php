@@ -9,6 +9,11 @@ class SrtGenerator
     ) {
     }
 
+    public static function load(Caption $caption): static
+    {
+        return new static($caption);
+    }
+
     public function export(string $path)
     {
         $file = fopen($path, 'w');
