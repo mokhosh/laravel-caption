@@ -10,8 +10,7 @@ it('can read xml caption files', function () {
 });
 
 it('can generate srt files', function () {
-    $parser = new XmlCaptionParser('tests/test.xml');
-    $caption = $parser->parse();
+    $caption = XmlCaptionParser::import('tests/test.xml')->parse();
     $generator = new SrtGenerator($caption);
     $generator->export('tests/test.srt');
 
