@@ -18,8 +18,8 @@ composer require mokhosh/laravel-xml2srt
 ## Usage
 
 ```php
-$caption = XmlCaptionParser::import('tests/test.xml')->parse();
-SrtGenerator::load($caption)->export('tests/test.srt');
+$caption = XmlCaptionParser::import('input.xml')->parse();
+SrtGenerator::load($caption)->export('output.srt');
 ```
 
 ## Testing
