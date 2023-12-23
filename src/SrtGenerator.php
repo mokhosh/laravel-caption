@@ -12,7 +12,7 @@ class SrtGenerator
     {
         $file = fopen($path, 'w');
 
-        foreach ($this->caption->lines as $index => $line) {
+        foreach ($this->caption->lines() as $index => $line) {
             $output = 
                 $index + 1 . "\n" .
                 $line->start . " --> " .
