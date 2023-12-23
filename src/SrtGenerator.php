@@ -19,12 +19,15 @@ class SrtGenerator
         $file = fopen($path, 'w');
 
         foreach ($this->caption->lines() as $index => $line) {
-            $output =
-                $index + 1 ."\n".
-                $line->start.' --> '.
-                $line->duration."\n".
-                $line->text."\n\n";
+            $start = TimecodeConverter::floatToTimecode($line->start);
+            $end = TimecodeConverter::floatToTimecode($line->start + $line->duration);
 
+            $output = 
+                $index + 1 . "\n" .
+                $start . " --> " .
+                $end . "\n" .
+                $line->text . "\n\n";
+                
             fwrite($file, $output);
         }
 
