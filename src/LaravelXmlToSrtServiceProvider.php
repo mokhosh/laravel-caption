@@ -2,9 +2,9 @@
 
 namespace Mokhosh\LaravelXmlToSrt;
 
+use Mokhosh\LaravelXmlToSrt\Commands\LaravelXmlToSrtCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Mokhosh\LaravelXmlToSrt\Commands\LaravelXmlToSrtCommand;
 
 class LaravelXmlToSrtServiceProvider extends PackageServiceProvider
 {

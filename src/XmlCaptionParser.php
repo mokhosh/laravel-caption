@@ -16,7 +16,7 @@ class XmlCaptionParser
     public static function import(string $path): static
     {
         $xml = file_get_contents($path);
-        
+
         return new static($xml);
     }
 
