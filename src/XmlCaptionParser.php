@@ -26,8 +26,8 @@ class XmlCaptionParser
 
         foreach ($this->xml->text as $text) {
             $caption->add(new Line(
-                $text['start'],
-                $text['dur'],
+                floatval($text['start']),
+                floatval($text['dur']),
                 $text,
             ));
         }
