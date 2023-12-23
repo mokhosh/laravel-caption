@@ -22,12 +22,12 @@ class SrtGenerator
             $start = TimecodeConverter::floatToTimecode($line->start);
             $end = TimecodeConverter::floatToTimecode($line->start + $line->duration);
 
-            $output = 
-                $index + 1 . "\n" .
-                $start . " --> " .
-                $end . "\n" .
-                $line->text . "\n\n";
-                
+            $output =
+                $index + 1 ."\n".
+                $start.' --> '.
+                $end."\n".
+                $line->text."\n\n";
+
             fwrite($file, $output);
         }
 
