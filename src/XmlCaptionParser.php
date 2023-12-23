@@ -24,7 +24,7 @@ class XmlCaptionParser
     {
         $caption = new Caption;
 
-        foreach ($xml->transcript as $text) {
+        foreach ($this->xml->text as $text) {
             $caption->add(new Line(
                 $text['start'],
                 $text['dur'],
