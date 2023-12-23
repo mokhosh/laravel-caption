@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transcript>
+    <text start="0" dur="2">something</text>
+    <text start="2" dur="1.912">another thing</text>
+    <text start="3.912" dur="2.088">something else</text>
+    <text start="6" dur="2">hey</text>
+    <text start="8" dur="2">alright</text>
+    <text start="10" dur="2">nice</text>
+    <text start="44.721" dur="2.254">something here</text>
+    <text start="82.238" dur="2">something here</text>
+    <text start="162.561" dur="2">something here</text>
+</transcript>

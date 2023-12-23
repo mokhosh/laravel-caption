@@ -1,0 +1,36 @@
+1
+0 --> 2
+something
+
+2
+2 --> 1.912
+another thing
+
+3
+3.912 --> 2.088
+something else
+
+4
+6 --> 2
+hey
+
+5
+8 --> 2
+alright
+
+6
+10 --> 2
+nice
+
+7
+44.721 --> 2.254
+something here
+
+8
+82.238 --> 2
+something here
+
+9
+162.561 --> 2
+something here
+
