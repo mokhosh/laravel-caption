@@ -22,7 +22,17 @@ You can simply convert a youtube xml timecode file to a srt subtitle file like s
 ```php
 use Mokhosh\LaravelXmlToSrt\Facades\LaravelXmlToSrt;
 
-LaravelXmlToSrt::convert('input.xml', 'output.srt');
+// convert to srt and return output path
+$output = LaravelXmlToSrt::convert('input.xml', 'output.srt');
+```
+
+If you need to chunk your xml into smaller srt files, do this:
+
+```php
+use Mokhosh\LaravelXmlToSrt\Facades\LaravelXmlToSrt;
+
+// chunk every 10 lines into chunks/ folder and return an array of chunks' paths
+$chunks = LaravelXmlToSrt::chunk('input.xml', 10, 'chunks/');
 ```
 
 If you need more control you can do this:
@@ -32,7 +42,18 @@ use Mokhosh\LaravelXmlToSrt\XmlCaptionParser;
 use Mokhosh\LaravelXmlToSrt\SrtGenerator;
 
 $caption = XmlCaptionParser::import('input.xml')->parse();
-SrtGenerator::load($caption)->export('output.srt');
+$output = SrtGenerator::load($caption)->export('output.srt');
+```
+
+And for chunking:
+
+```php
+use Mokhosh\LaravelXmlToSrt\XmlCaptionParser;
+use Mokhosh\LaravelXmlToSrt\SrtGenerator;
+
+$caption = XmlCaptionParser::import('input.xml')->parse();
+// chunk every 4 lines into chunks folder and prefix chunk files with the word "part"
+$chunks = SrtGenerator::load($caption)->chunk(4, 'chunks/', 'part');
 ```
 
 `Caption` has a `Collection` of `Line`s, to which you can `add()` a new `Line`.
