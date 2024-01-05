@@ -21,6 +21,17 @@ class SrtGenerator
         $this->generate($this->caption->lines(), $path);
     }
 
+    public function chunk(int $every, string $folder, string $prefix = 'chunk'): void
+    {
+        $chunks = $this->caption->lines()->chunk($every);
+
+        foreach ($chunks as $index => $chunk) {
+            $path = $folder . $prefix . str_pad($index + 1, 3, '0', STR_PAD_LEFT) . '.srt';
+
+            $this->generate($chunk, $path);
+        }
+    }
+
     protected function generate(Collection $lines, string $path): void
     {
         $file = fopen($path, 'w');
