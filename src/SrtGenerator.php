@@ -2,6 +2,8 @@
 
 namespace Mokhosh\LaravelXmlToSrt;
 
+use Illuminate\Support\Collection;
+
 class SrtGenerator
 {
     public function __construct(
@@ -14,11 +16,16 @@ class SrtGenerator
         return new static($caption);
     }
 
-    public function export(string $path)
+    public function export(string $path): void
+    {
+        $this->generate($this->caption->lines(), $path);
+    }
+
+    protected function generate(Collection $lines, string $path): void
     {
         $file = fopen($path, 'w');
 
-        foreach ($this->caption->lines() as $index => $line) {
+        foreach ($lines as $index => $line) {
             $start = TimecodeConverter::floatToTimecode($line->start);
             $end = TimecodeConverter::floatToTimecode($line->start + $line->duration);
 
