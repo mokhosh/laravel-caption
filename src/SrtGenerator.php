@@ -26,7 +26,7 @@ class SrtGenerator
         $chunks = $this->caption->lines()->chunk($every);
 
         foreach ($chunks as $index => $chunk) {
-            $path = $folder . $prefix . str_pad($index + 1, 3, '0', STR_PAD_LEFT) . '.srt';
+            $path = $folder.$prefix.str_pad($index + 1, 3, '0', STR_PAD_LEFT).'.srt';
 
             $this->generate($chunk, $path);
         }
