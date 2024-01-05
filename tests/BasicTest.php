@@ -14,6 +14,8 @@ it('can generate srt files', function () {
     SrtGenerator::load($caption)->export('tests/test.srt');
 
     expect('tests/test.srt')->toBeReadableFile();
+
+    unlink('tests/test.srt');
 });
 
 it('can chunk xml to srt files', function () {
@@ -23,4 +25,8 @@ it('can chunk xml to srt files', function () {
     expect('tests/chunk001.srt')->toBeReadableFile();
     expect('tests/chunk002.srt')->toBeReadableFile();
     expect('tests/chunk003.srt')->toBeReadableFile();
+
+    unlink('tests/chunk001.srt');
+    unlink('tests/chunk002.srt');
+    unlink('tests/chunk003.srt');
 });
