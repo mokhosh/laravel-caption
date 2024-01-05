@@ -15,3 +15,12 @@ it('can generate srt files', function () {
 
     expect('tests/test.srt')->toBeReadableFile();
 });
+
+it('can chunk xml to srt files', function () {
+    $caption = XmlCaptionParser::import('tests/test.xml')->parse();
+    SrtGenerator::load($caption)->chunk(4, 'tests/');
+
+    expect('tests/chunk001.srt')->toBeReadableFile();
+    expect('tests/chunk002.srt')->toBeReadableFile();
+    expect('tests/chunk003.srt')->toBeReadableFile();
+});
