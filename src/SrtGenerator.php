@@ -16,23 +16,26 @@ class SrtGenerator
         return new static($caption);
     }
 
-    public function export(string $path): void
+    public function export(string $path): string
     {
-        $this->generate($this->caption->lines(), $path);
+        return $this->generate($this->caption->lines(), $path);
     }
 
-    public function chunk(int $every, string $folder, string $prefix = 'chunk'): void
+    public function chunk(int $every, string $folder, string $prefix = 'chunk'): array
     {
+        $paths = [];
         $chunks = $this->caption->lines()->chunk($every);
 
         foreach ($chunks as $index => $chunk) {
             $path = $folder.$prefix.str_pad($index + 1, 3, '0', STR_PAD_LEFT).'.srt';
 
-            $this->generate($chunk, $path);
+            $paths[] = $this->generate($chunk, $path);
         }
+
+        return $paths;
     }
 
-    protected function generate(Collection $lines, string $path): void
+    protected function generate(Collection $lines, string $path): string
     {
         $file = fopen($path, 'w');
 
@@ -50,5 +53,7 @@ class SrtGenerator
         }
 
         fclose($file);
+
+        return $path;
     }
 }
