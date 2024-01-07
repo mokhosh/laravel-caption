@@ -21,7 +21,7 @@ class SrtGenerator
         return $this->generate($this->caption->lines(), $path);
     }
 
-    public function chunk(int $every, string $folder, string $prefix = 'chunk'): array
+    public function chunk(int $every, string $folder, string $prefix = 'chunk'): Collection
     {
         $paths = [];
         $chunks = $this->caption->lines()->chunk($every);
@@ -32,7 +32,7 @@ class SrtGenerator
             $paths[] = $this->generate($chunk, $path);
         }
 
-        return $paths;
+        return collect($paths);
     }
 
     protected function generate(Collection $lines, string $path): string
