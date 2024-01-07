@@ -21,9 +21,10 @@
         "illuminate/contracts": "^10.0"
     },
     "require-dev": {
+        "larastan/larastan": "^2.0.1",
+        "laravel/facade-documenter": "dev-main",
         "laravel/pint": "^1.0",
         "nunomaduro/collision": "^7.8",
-        "larastan/larastan": "^2.0.1",
         "orchestra/testbench": "^8.8",
         "pestphp/pest": "^2.20",
         "pestphp/pest-plugin-arch": "^2.0",
@@ -45,6 +46,7 @@
         }
     },
     "scripts": {
+        "facade-docs": "php -f vendor/bin/facade.php Mokhosh\\\\LaravelXmlToSrt\\\\Facades\\\\LaravelXmlToSrt",
         "post-autoload-dump": "@composer run prepare",
         "clear": "@php vendor/bin/testbench package:purge-laravel-xml2srt --ansi",
         "prepare": "@php vendor/bin/testbench package:discover --ansi",
@@ -80,5 +82,11 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": {
+        "facade-documenter": {
+            "type": "vcs",
+            "url": "git@github.com:laravel/facade-documenter.git"
+        }
+    }
 }
