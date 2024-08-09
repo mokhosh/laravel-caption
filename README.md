@@ -5,6 +5,11 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/mokhosh/laravel-xml2srt/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/mokhosh/laravel-xml2srt/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/mokhosh/laravel-xml2srt.svg?style=flat-square)](https://packagist.org/packages/mokhosh/laravel-xml2srt)
 
+> [!CAUTION]
+> Previously `laravel-xml2srt` now renamed to `laravel-captions`
+> 
+> Use [laravel-captions](https://github.com/mokhosh/laravel-captions) instead.
+
 You can parse xml timecodes into line by line represenation of the caption, and then generate srt files based on the parsed caption.
 
 ## Installation
