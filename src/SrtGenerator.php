@@ -8,8 +8,7 @@ class SrtGenerator
 {
     public function __construct(
         protected Caption $caption,
-    ) {
-    }
+    ) {}
 
     public static function load(Caption $caption): static
     {

@@ -8,6 +8,5 @@ readonly class Line
         public float $start,
         public float $duration,
         public string $text,
-    ) {
-    }
+    ) {}
 }
