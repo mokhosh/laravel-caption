@@ -15,7 +15,39 @@ You can install the package via composer:
 composer require mokhosh/laravel-caption
 ```
 
+## Concepts
+
+`Caption` has a `Collection` of `Line`s, to which you can `add()` a new `Line`.
+You can also get all `lines()` of a `Caption`.
+Each line is a readonly value object consisting of a float `start`, a float `duration`, and a `text`.
+
+You can also use `TimecodeConverter`'s `floatToTimecode()` to convert floating seconds/miliseconds values to formatted timecode.
+
 ## Usage
+
+Let's say you need to read subtitles in any custom format and generate SRT subtitles based on its contents.
+
+Here's how we convert an OpenAI transcription Json to an STR file:
+
+```php
+use Mokhosh\LaravelCaption\Caption;
+use Mokhosh\LaravelCaption\Line;
+use Mokhosh\LaravelCaption\SrtGenerator;
+
+// $response = OpenAI::audio()->transcribe();
+
+$caption = new Caption;
+
+foreach ($response->segments as $segment) {
+    $caption->add(new Line(
+        floatval($segment->start),
+        floatval($segment->end) - floatval($segment->start),
+        trim($segment->text),
+    ));
+}
+
+SrtGenerator::load($caption)->export('output.srt');
+```
 
 You can simply convert a YouTube xml timecode file to a srt subtitle file like so:
 
@@ -55,12 +87,6 @@ $caption = XmlCaptionParser::import('input.xml')->parse();
 // chunk every 4 lines into chunks folder and prefix chunk files with the word "part"
 $chunks = SrtGenerator::load($caption)->chunk(4, 'chunks/', 'part');
 ```
-
-`Caption` has a `Collection` of `Line`s, to which you can `add()` a new `Line`.
-You can also get all `lines()` of a `Caption`.
-Each line is a readonly value object consisting of a float `start`, a float `duration`, and a `text`.
-
-You can also use `TimecodeConverter`'s `floatToTimecode()` to convert floating seconds/miliseconds values to formatted timecode.
 
 ## Testing
 
