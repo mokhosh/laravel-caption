@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * @method static string|Collection<int, string> xml2srt(string $input, string $output, ?int $every = null, string $prefix = 'chunk')
+ * @method static string openai2srt(string $input, string $output)
  *
  * @see \Mokhosh\LaravelCaption\LaravelCaption
  */

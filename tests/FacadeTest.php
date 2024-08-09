@@ -28,3 +28,14 @@ it('can convert xml files into chunked srt files', function () {
     unlink('tests/chunk002.srt');
     unlink('tests/chunk003.srt');
 });
+
+it('can convert openai json files to srt format', function () {
+    LaravelCaption::openai2srt(
+        input: 'tests/test.json',
+        output: 'tests/test.srt',
+    );
+
+    expect('tests/test.srt')->toBeReadableFile();
+
+    unlink('tests/test.srt');
+});

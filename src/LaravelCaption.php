@@ -16,4 +16,11 @@ class LaravelCaption
             return SrtGenerator::load($caption)->chunk($every, $output, $prefix);
         }
     }
+
+    public function openai2srt(string $input, string $output): string
+    {
+        $caption = OpenAiTranscriptionParser::import($input)->parse();
+
+        return SrtGenerator::load($caption)->export($output);
+    }
 }
