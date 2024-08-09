@@ -1,16 +1,11 @@
-# Convert youtube xml subtitles to srt format
+# Work with SRT files and YouTube XML subtitles in Laravel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/mokhosh/laravel-caption.svg?style=flat-square)](https://packagist.org/packages/mokhosh/laravel-caption)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/mokhosh/laravel-caption/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/mokhosh/laravel-caption/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/mokhosh/laravel-caption/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/mokhosh/laravel-caption/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/mokhosh/laravel-caption.svg?style=flat-square)](https://packagist.org/packages/mokhosh/laravel-caption)
 
-> [!CAUTION]
-> Previously `laravel-xml2srt` now renamed to `laravel-caption`
-> 
-> Use [laravel-caption](https://github.com/mokhosh/laravel-caption) instead.
-
-You can parse xml timecodes into line by line represenation of the caption, and then generate srt files based on the parsed caption.
+You can parse xml timecodes into line by line representation of the caption, and then generate srt files based on the parsed caption.
 
 ## Installation
 
@@ -22,13 +17,13 @@ composer require mokhosh/laravel-caption
 
 ## Usage
 
-You can simply convert a youtube xml timecode file to a srt subtitle file like so:
+You can simply convert a YouTube xml timecode file to a srt subtitle file like so:
 
 ```php
 use Mokhosh\LaravelCaption\Facades\LaravelCaption;
 
 // convert to srt and return output path
-$output = LaravelCaption::convert('input.xml', 'output.srt');
+$output = LaravelCaption::xml2srt('input.xml', 'output.srt');
 ```
 
 If you need to chunk your xml into smaller srt files, do this:
@@ -37,7 +32,7 @@ If you need to chunk your xml into smaller srt files, do this:
 use Mokhosh\LaravelCaption\Facades\LaravelCaption;
 
 // chunk every 10 lines into chunks/ folder and return an array of chunks' paths
-$chunks = LaravelCaption::chunk('input.xml', 10, 'chunks/');
+$chunks = LaravelCaption::xml2srt('input.xml', 'chunks/', every: 10);
 ```
 
 If you need more control you can do this:

@@ -3,6 +3,7 @@
 namespace Mokhosh\LaravelCaption;
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 
 class SrtGenerator
 {
@@ -22,6 +23,7 @@ class SrtGenerator
 
     public function chunk(int $every, string $folder, string $prefix = 'chunk'): Collection
     {
+        $folder = Str::finish($folder, '/');
         $paths = [];
         $chunks = $this->caption->lines()->chunk($every);
 

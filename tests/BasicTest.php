@@ -22,9 +22,22 @@ it('can chunk xml to srt files', function () {
     $caption = XmlCaptionParser::import('tests/test.xml')->parse();
     SrtGenerator::load($caption)->chunk(4, 'tests/');
 
-    expect('tests/chunk001.srt')->toBeReadableFile();
-    expect('tests/chunk002.srt')->toBeReadableFile();
-    expect('tests/chunk003.srt')->toBeReadableFile();
+    expect('tests/chunk001.srt')->toBeReadableFile()
+        ->and('tests/chunk002.srt')->toBeReadableFile()
+        ->and('tests/chunk003.srt')->toBeReadableFile();
+
+    unlink('tests/chunk001.srt');
+    unlink('tests/chunk002.srt');
+    unlink('tests/chunk003.srt');
+});
+
+test('you can omit last slash when chunking', function () {
+    $caption = XmlCaptionParser::import('tests/test.xml')->parse();
+    SrtGenerator::load($caption)->chunk(4, 'tests');
+
+    expect('tests/chunk001.srt')->toBeReadableFile()
+        ->and('tests/chunk002.srt')->toBeReadableFile()
+        ->and('tests/chunk003.srt')->toBeReadableFile();
 
     unlink('tests/chunk001.srt');
     unlink('tests/chunk002.srt');

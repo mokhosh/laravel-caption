@@ -6,17 +6,14 @@ use Illuminate\Support\Collection;
 
 class LaravelCaption
 {
-    public function convert(string $input, string $output): string
+    public function xml2srt(string $input, string $output, ?int $every = null, string $prefix = 'chunk'): string|Collection
     {
         $caption = XmlCaptionParser::import($input)->parse();
 
-        return SrtGenerator::load($caption)->export($output);
-    }
-
-    public function chunk(string $input, int $every, string $outputFolder, string $prefix): Collection
-    {
-        $caption = XmlCaptionParser::import($input)->parse();
-
-        return SrtGenerator::load($caption)->chunk($every, $outputFolder, $prefix);
+        if (is_null($every)) {
+            return SrtGenerator::load($caption)->export($output);
+        } else {
+            return SrtGenerator::load($caption)->chunk($every, $output, $prefix);
+        }
     }
 }

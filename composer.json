@@ -1,6 +1,6 @@
 {
     "name": "mokhosh/laravel-caption",
-    "description": "Work with SRT files and Youtube XML subtitles in Laravel",
+    "description": "Work with SRT files and YouTube XML subtitles in Laravel",
     "keywords": [
         "Mo Khosh",
         "laravel",

@@ -2,17 +2,17 @@
 
 namespace Mokhosh\LaravelCaption\Facades;
 
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static string convert(string $input, string $output)
- * @method static \Illuminate\Support\Collection chunk(string $input, int $every, string $outputFolder, string $prefix)
+ * @method static string|Collection<int, string> xml2srt(string $input, string $output, ?int $every = null, string $prefix = 'chunk')
  *
  * @see \Mokhosh\LaravelCaption\LaravelCaption
  */
 class LaravelCaption extends Facade
 {
-    protected static function getFacadeAccessor()
+    protected static function getFacadeAccessor(): string
     {
         return \Mokhosh\LaravelCaption\LaravelCaption::class;
     }
