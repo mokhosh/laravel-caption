@@ -10,6 +10,6 @@ class LaravelCaptionServiceProvider extends PackageServiceProvider
     public function configurePackage(Package $package): void
     {
         $package
-            ->name('laravel-xml2srt');
+            ->name('laravel-caption');
     }
 }

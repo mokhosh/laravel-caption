@@ -1,3 +1,3 @@
 # Changelog
 
-All notable changes to `laravel-xml2srt` will be documented in this file.
+All notable changes to `laravel-caption` will be documented in this file.

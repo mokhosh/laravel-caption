@@ -49,7 +49,7 @@
     "scripts": {
         "facade-docs": "php -f vendor/bin/facade.php Mokhosh\\\\LaravelCaption\\\\Facades\\\\LaravelCaption",
         "post-autoload-dump": "@composer run prepare",
-        "clear": "@php vendor/bin/testbench package:purge-laravel-xml2srt --ansi",
+        "clear": "@php vendor/bin/testbench package:purge-laravel-caption --ansi",
         "prepare": "@php vendor/bin/testbench package:discover --ansi",
         "build": [
             "@composer run prepare",
