@@ -4,7 +4,7 @@ use Mokhosh\LaravelCaption\Facades\LaravelCaption;
 
 it('can convert xml files to srt format', function () {
     LaravelCaption::xml2srt(
-        input: 'tests/test.xml',
+        input: 'tests/Inputs/youtube.xml',
         output: 'tests/test.srt',
     );
 
@@ -15,7 +15,7 @@ it('can convert xml files to srt format', function () {
 
 it('can convert xml files into chunked srt files', function () {
     LaravelCaption::xml2srt(
-        input: 'tests/test.xml',
+        input: 'tests/Inputs/youtube.xml',
         output: 'tests/',
         every: 4,
     );
@@ -31,7 +31,7 @@ it('can convert xml files into chunked srt files', function () {
 
 it('can convert openai json files to srt format', function () {
     LaravelCaption::openai2srt(
-        input: 'tests/test.json',
+        input: 'tests/Inputs/openai.json',
         output: 'tests/test.srt',
     );
 
