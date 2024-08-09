@@ -1,17 +1,27 @@
 <?php
 
+use Mokhosh\LaravelCaption\Caption;
 use Mokhosh\LaravelCaption\Generators\SrtGenerator;
-use Mokhosh\LaravelCaption\Parsers\XmlCaptionParser;
+use Mokhosh\LaravelCaption\Line;
 
-it('can read xml caption files', function () {
-    $caption = XmlCaptionParser::import('tests/test.xml')->parse();
+beforeEach(function () {
+    $caption = [
+        [1.0, 1.0, 'line #1'],
+        [2.0, 1.0, 'line #2'],
+        [3.0, 1.0, 'line #3'],
+        [4.0, 1.0, 'line #4'],
+        [5.0, 1.0, 'line #5'],
+    ];
 
-    expect($caption->lines()->count())->toBe(9);
+    $this->caption = new Caption;
+
+    foreach ($caption as $line) {
+        $this->caption->add(new Line(...$line));
+    }
 });
 
 it('can generate srt files', function () {
-    $caption = XmlCaptionParser::import('tests/test.xml')->parse();
-    SrtGenerator::load($caption)->export('tests/test.srt');
+    SrtGenerator::load($this->caption)->export('tests/test.srt');
 
     expect('tests/test.srt')->toBeReadableFile();
 
@@ -19,8 +29,7 @@ it('can generate srt files', function () {
 });
 
 it('can chunk xml to srt files', function () {
-    $caption = XmlCaptionParser::import('tests/test.xml')->parse();
-    SrtGenerator::load($caption)->chunk(4, 'tests/');
+    SrtGenerator::load($this->caption)->chunk(2, 'tests/');
 
     expect('tests/chunk001.srt')->toBeReadableFile()
         ->and('tests/chunk002.srt')->toBeReadableFile()
@@ -32,8 +41,7 @@ it('can chunk xml to srt files', function () {
 });
 
 test('you can omit last slash when chunking', function () {
-    $caption = XmlCaptionParser::import('tests/test.xml')->parse();
-    SrtGenerator::load($caption)->chunk(4, 'tests');
+    SrtGenerator::load($this->caption)->chunk(2, 'tests');
 
     expect('tests/chunk001.srt')->toBeReadableFile()
         ->and('tests/chunk002.srt')->toBeReadableFile()
@@ -45,8 +53,7 @@ test('you can omit last slash when chunking', function () {
 });
 
 it('returns srt filename', function () {
-    $caption = XmlCaptionParser::import('tests/test.xml')->parse();
-    $output = SrtGenerator::load($caption)->export('tests/test.srt');
+    $output = SrtGenerator::load($this->caption)->export('tests/test.srt');
 
     expect($output)->toBeReadableFile();
 
@@ -54,8 +61,7 @@ it('returns srt filename', function () {
 });
 
 it('returns chunk filenames', function () {
-    $caption = XmlCaptionParser::import('tests/test.xml')->parse();
-    $chunks = SrtGenerator::load($caption)->chunk(4, 'tests/');
+    $chunks = SrtGenerator::load($this->caption)->chunk(2, 'tests/');
 
     foreach ($chunks as $chunk) {
         expect($chunk)->toBeReadableFile();
