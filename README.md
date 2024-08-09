@@ -47,6 +47,15 @@ foreach ($response->segments as $segment) {
 SrtGenerator::load($caption)->export('output.srt');
 ```
 
+Or you can use the facade to load a json file containing an OpenAI response:
+
+```php
+use Mokhosh\LaravelCaption\Facades\LaravelCaption;
+
+// convert to srt and return output path
+$output = LaravelCaption::openai2srt('input.json', 'output.srt');
+```
+
 You can simply convert a YouTube xml timecode file to a srt subtitle file like so:
 
 ```php
