@@ -30,9 +30,7 @@ Let's say you need to read subtitles in any custom format and generate SRT subti
 Here's how we convert an OpenAI transcription Json to an STR file:
 
 ```php
-use Mokhosh\LaravelCaption\Caption;
-use Mokhosh\LaravelCaption\Line;
-use Mokhosh\LaravelCaption\SrtGenerator;
+use Mokhosh\LaravelCaption\Caption;use Mokhosh\LaravelCaption\Generators\SrtGenerator;use Mokhosh\LaravelCaption\Line;
 
 // $response = OpenAI::audio()->transcribe();
 
@@ -70,8 +68,7 @@ $chunks = LaravelCaption::xml2srt('input.xml', 'chunks/', every: 10);
 If you need more control you can do this:
 
 ```php
-use Mokhosh\LaravelCaption\XmlCaptionParser;
-use Mokhosh\LaravelCaption\SrtGenerator;
+use Mokhosh\LaravelCaption\Generators\SrtGenerator;use Mokhosh\LaravelCaption\Parsers\XmlCaptionParser;
 
 $caption = XmlCaptionParser::import('input.xml')->parse();
 $output = SrtGenerator::load($caption)->export('output.srt');
@@ -80,8 +77,7 @@ $output = SrtGenerator::load($caption)->export('output.srt');
 And for chunking:
 
 ```php
-use Mokhosh\LaravelCaption\XmlCaptionParser;
-use Mokhosh\LaravelCaption\SrtGenerator;
+use Mokhosh\LaravelCaption\Generators\SrtGenerator;use Mokhosh\LaravelCaption\Parsers\XmlCaptionParser;
 
 $caption = XmlCaptionParser::import('input.xml')->parse();
 // chunk every 4 lines into chunks folder and prefix chunk files with the word "part"

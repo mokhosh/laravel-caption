@@ -3,6 +3,9 @@
 namespace Mokhosh\LaravelCaption;
 
 use Illuminate\Support\Collection;
+use Mokhosh\LaravelCaption\Generators\SrtGenerator;
+use Mokhosh\LaravelCaption\Parsers\OpenAiTranscriptionParser;
+use Mokhosh\LaravelCaption\Parsers\XmlCaptionParser;
 
 class LaravelCaption
 {

@@ -1,6 +1,6 @@
 <?php
 
-use Mokhosh\LaravelCaption\OpenAiTranscriptionParser;
+use Mokhosh\LaravelCaption\Parsers\OpenAiTranscriptionParser;
 
 it('can read openai transcription files', function () {
     $caption = OpenAiTranscriptionParser::import('tests/test.json')->parse();

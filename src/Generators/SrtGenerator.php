@@ -1,9 +1,11 @@
 <?php
 
-namespace Mokhosh\LaravelCaption;
+namespace Mokhosh\LaravelCaption\Generators;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
+use Mokhosh\LaravelCaption\Caption;
+use Mokhosh\LaravelCaption\Support\TimecodeConverter;
 
 class SrtGenerator
 {

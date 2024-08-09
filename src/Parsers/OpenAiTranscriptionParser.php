@@ -1,6 +1,9 @@
 <?php
 
-namespace Mokhosh\LaravelCaption;
+namespace Mokhosh\LaravelCaption\Parsers;
+
+use Mokhosh\LaravelCaption\Caption;
+use Mokhosh\LaravelCaption\Line;
 
 class OpenAiTranscriptionParser
 {

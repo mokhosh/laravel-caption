@@ -1,7 +1,7 @@
 <?php
 
-use Mokhosh\LaravelCaption\SrtGenerator;
-use Mokhosh\LaravelCaption\XmlCaptionParser;
+use Mokhosh\LaravelCaption\Generators\SrtGenerator;
+use Mokhosh\LaravelCaption\Parsers\XmlCaptionParser;
 
 it('can read xml caption files', function () {
     $caption = XmlCaptionParser::import('tests/test.xml')->parse();

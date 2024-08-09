@@ -1,6 +1,6 @@
 <?php
 
-namespace Mokhosh\LaravelCaption;
+namespace Mokhosh\LaravelCaption\Support;
 
 use DateTime;
 use DateTimeZone;
