@@ -37,8 +37,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Mokhosh\\LaravelCaption\\": "src/",
-            "Mokhosh\\LaravelCaption\\Database\\Factories\\": "database/factories/"
+            "Mokhosh\\LaravelCaption\\": "src/"
         }
     },
     "autoload-dev": {
