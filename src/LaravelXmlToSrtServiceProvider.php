@@ -1,11 +1,11 @@
 <?php
 
-namespace Mokhosh\LaravelXmlToSrt;
+namespace Mokhosh\LaravelCaption;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class LaravelXmlToSrtServiceProvider extends PackageServiceProvider
+class LaravelCaptionServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {

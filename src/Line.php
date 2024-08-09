@@ -1,6 +1,6 @@
 <?php
 
-namespace Mokhosh\LaravelXmlToSrt;
+namespace Mokhosh\LaravelCaption;
 
 readonly class Line
 {

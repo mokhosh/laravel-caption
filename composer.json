@@ -1,12 +1,13 @@
 {
-    "name": "mokhosh/laravel-xml2srt",
-    "description": "Convert youtube xml subtitles to srt format",
+    "name": "mokhosh/laravel-caption",
+    "description": "Work with SRT files and Youtube XML subtitles in Laravel",
     "keywords": [
         "Mo Khosh",
         "laravel",
-        "laravel-xml2srt"
+        "laravel-xml2srt",
+        "laravel-caption"
     ],
-    "homepage": "https://github.com/mokhosh/laravel-xml2srt",
+    "homepage": "https://github.com/mokhosh/laravel-caption",
     "license": "MIT",
     "authors": [
         {
@@ -35,18 +36,18 @@
     },
     "autoload": {
         "psr-4": {
-            "Mokhosh\\LaravelXmlToSrt\\": "src/",
-            "Mokhosh\\LaravelXmlToSrt\\Database\\Factories\\": "database/factories/"
+            "Mokhosh\\LaravelCaption\\": "src/",
+            "Mokhosh\\LaravelCaption\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Mokhosh\\LaravelXmlToSrt\\Tests\\": "tests/",
+            "Mokhosh\\LaravelCaption\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
     "scripts": {
-        "facade-docs": "php -f vendor/bin/facade.php Mokhosh\\\\LaravelXmlToSrt\\\\Facades\\\\LaravelXmlToSrt",
+        "facade-docs": "php -f vendor/bin/facade.php Mokhosh\\\\LaravelCaption\\\\Facades\\\\LaravelCaption",
         "post-autoload-dump": "@composer run prepare",
         "clear": "@php vendor/bin/testbench package:purge-laravel-xml2srt --ansi",
         "prepare": "@php vendor/bin/testbench package:discover --ansi",
@@ -74,10 +75,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Mokhosh\\LaravelXmlToSrt\\LaravelXmlToSrtServiceProvider"
+                "Mokhosh\\LaravelCaption\\LaravelCaptionServiceProvider"
             ],
             "aliases": {
-                "LaravelXmlToSrt": "Mokhosh\\LaravelXmlToSrt\\Facades\\LaravelXmlToSrt"
+                "LaravelCaption": "Mokhosh\\LaravelCaption\\Facades\\LaravelCaption"
             }
         }
     },

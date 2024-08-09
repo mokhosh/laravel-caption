@@ -1,6 +1,6 @@
 <?php
 
-use Mokhosh\LaravelXmlToSrt\TimecodeConverter;
+use Mokhosh\LaravelCaption\TimecodeConverter;
 
 it('can convert float to timecode', function () {
     $seconds = 0.0;

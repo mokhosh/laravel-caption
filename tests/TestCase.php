@@ -1,9 +1,9 @@
 <?php
 
-namespace Mokhosh\LaravelXmlToSrt\Tests;
+namespace Mokhosh\LaravelCaption\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Mokhosh\LaravelXmlToSrt\LaravelXmlToSrtServiceProvider;
+use Mokhosh\LaravelCaption\LaravelCaptionServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
@@ -13,14 +13,14 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Mokhosh\\LaravelXmlToSrt\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'Mokhosh\\LaravelCaption\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 
     protected function getPackageProviders($app)
     {
         return [
-            LaravelXmlToSrtServiceProvider::class,
+            LaravelCaptionServiceProvider::class,
         ];
     }
 

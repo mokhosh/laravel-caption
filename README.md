@@ -6,9 +6,9 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/mokhosh/laravel-xml2srt.svg?style=flat-square)](https://packagist.org/packages/mokhosh/laravel-xml2srt)
 
 > [!CAUTION]
-> Previously `laravel-xml2srt` now renamed to `laravel-captions`
+> Previously `laravel-xml2srt` now renamed to `laravel-caption`
 > 
-> Use [laravel-captions](https://github.com/mokhosh/laravel-captions) instead.
+> Use [laravel-caption](https://github.com/mokhosh/laravel-caption) instead.
 
 You can parse xml timecodes into line by line represenation of the caption, and then generate srt files based on the parsed caption.
 
@@ -25,26 +25,26 @@ composer require mokhosh/laravel-xml2srt
 You can simply convert a youtube xml timecode file to a srt subtitle file like so:
 
 ```php
-use Mokhosh\LaravelXmlToSrt\Facades\LaravelXmlToSrt;
+use Mokhosh\LaravelCaption\Facades\LaravelCaption;
 
 // convert to srt and return output path
-$output = LaravelXmlToSrt::convert('input.xml', 'output.srt');
+$output = LaravelCaption::convert('input.xml', 'output.srt');
 ```
 
 If you need to chunk your xml into smaller srt files, do this:
 
 ```php
-use Mokhosh\LaravelXmlToSrt\Facades\LaravelXmlToSrt;
+use Mokhosh\LaravelCaption\Facades\LaravelCaption;
 
 // chunk every 10 lines into chunks/ folder and return an array of chunks' paths
-$chunks = LaravelXmlToSrt::chunk('input.xml', 10, 'chunks/');
+$chunks = LaravelCaption::chunk('input.xml', 10, 'chunks/');
 ```
 
 If you need more control you can do this:
 
 ```php
-use Mokhosh\LaravelXmlToSrt\XmlCaptionParser;
-use Mokhosh\LaravelXmlToSrt\SrtGenerator;
+use Mokhosh\LaravelCaption\XmlCaptionParser;
+use Mokhosh\LaravelCaption\SrtGenerator;
 
 $caption = XmlCaptionParser::import('input.xml')->parse();
 $output = SrtGenerator::load($caption)->export('output.srt');
@@ -53,8 +53,8 @@ $output = SrtGenerator::load($caption)->export('output.srt');
 And for chunking:
 
 ```php
-use Mokhosh\LaravelXmlToSrt\XmlCaptionParser;
-use Mokhosh\LaravelXmlToSrt\SrtGenerator;
+use Mokhosh\LaravelCaption\XmlCaptionParser;
+use Mokhosh\LaravelCaption\SrtGenerator;
 
 $caption = XmlCaptionParser::import('input.xml')->parse();
 // chunk every 4 lines into chunks folder and prefix chunk files with the word "part"

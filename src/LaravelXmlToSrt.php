@@ -1,10 +1,10 @@
 <?php
 
-namespace Mokhosh\LaravelXmlToSrt;
+namespace Mokhosh\LaravelCaption;
 
 use Illuminate\Support\Collection;
 
-class LaravelXmlToSrt
+class LaravelCaption
 {
     public function convert(string $input, string $output): string
     {

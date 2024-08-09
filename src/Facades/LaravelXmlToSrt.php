@@ -1,6 +1,6 @@
 <?php
 
-namespace Mokhosh\LaravelXmlToSrt\Facades;
+namespace Mokhosh\LaravelCaption\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
@@ -8,12 +8,12 @@ use Illuminate\Support\Facades\Facade;
  * @method static string convert(string $input, string $output)
  * @method static \Illuminate\Support\Collection chunk(string $input, int $every, string $outputFolder, string $prefix)
  *
- * @see \Mokhosh\LaravelXmlToSrt\LaravelXmlToSrt
+ * @see \Mokhosh\LaravelCaption\LaravelCaption
  */
-class LaravelXmlToSrt extends Facade
+class LaravelCaption extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return \Mokhosh\LaravelXmlToSrt\LaravelXmlToSrt::class;
+        return \Mokhosh\LaravelCaption\LaravelCaption::class;
     }
 }
